@@ -26,7 +26,32 @@ object Link2 {
 
 //        println(temp)
 //        println(findSomeNode(temp, 2))
-        printNode(temp)
+//        printNode(temp)
+
+        println(findMiddleNode(temp))
+    }
+
+    //如果是偶数的话可能是两个
+    fun <T> findMiddleNode(node: Link1.Node<T>): List<Link1.Node<T>> {
+        var tempList = mutableListOf<Link1.Node<T>>()
+        var slowNode = node
+        var fastNode = node
+
+        while (true) {
+            if (fastNode.next == null) {
+                //奇数，返回中间一个
+                tempList.add(slowNode)
+                return tempList
+            }
+            if (fastNode.next!!.next == null) {
+                tempList.add(slowNode)
+                tempList.add(slowNode.next!!)
+                return tempList
+            }
+
+            slowNode = slowNode.next!!
+            fastNode = fastNode.next!!.next!!
+        }
     }
 
     fun <T> printNode(node: Link1.Node<T>) {
