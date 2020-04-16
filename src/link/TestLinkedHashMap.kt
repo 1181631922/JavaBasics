@@ -45,6 +45,10 @@ object TestLinkedHashMap {
 
     }
 
+    fun getPrint(note: String = "打印") {
+        println("测试反射" + note)
+    }
+
     fun getOrder() {
         val testMap = LinkedHashMap<Int, String>(100, 0.75F, true)
         testMap.apply {

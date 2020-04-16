@@ -13,4 +13,8 @@ public class FatherClass {
     public void testNormalMethod() {
         System.out.println("测试普通方法是否可以重写");
     }
+
+    public void testNorMethod() {
+        testNormalMethod();
+    }
 }

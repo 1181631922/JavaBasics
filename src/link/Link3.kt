@@ -35,14 +35,14 @@ object Link3 {
         insertNode(tempTwo, temp24)
 //        println(tempTwo)
 
-//        mergeLink(tempTwo, tempOne)
+        mergeLink(tempTwo, tempOne)
 
-        val testArray = arrayOf(2, 3, 6, 8, 0, 34, 56, 78, 12, 34, 56, 98, 345, 673, 123, 32, 456, 90)
-        mergeSortUp2Down(testArray, 0, testArray.size - 1)
-
-        testArray.forEachIndexed { index, i ->
-            println(i)
-        }
+//        val testArray = arrayOf(2, 3, 6, 8, 0, 34, 56, 78, 12, 34, 56, 98, 345, 673, 123, 32, 456, 90)
+//        mergeSortUp2Down(testArray, 0, testArray.size - 1)
+//
+//        testArray.forEachIndexed { index, i ->
+//            println(i)
+//        }
     }
 
 
