@@ -1,0 +1,141 @@
+//task hello {
+//
+//    def str1 = "测试"
+//
+//    doLast {
+//        println("你好" + str1)
+//    }
+//
+//}
+//
+//task testList {
+//    //测试集合list
+//    def testList = [1, 2, 3, 4, 5]
+//    //get不能是负的，但是[]可以
+//    println(testList.get(1))
+//    println(testList[2])
+//    println(testList[-2])
+//    println(testList[1..3])
+//
+//    for (int i = 0; i < testList.size(); i++) {
+//        println testList.get(i)
+//    }
+//
+//    testList.each{
+//        println it
+//    }
+//}
+//
+//task testPrint {
+//    //测试类型打印
+//    def one = "测试"
+//    def two = 1
+//    def three = 2.0
+//    def four = 'f'
+//
+//    println("单引号定义的字符串类型：" + one.getClass().toString())
+//    println(one)
+//    println two
+//    println three
+//    println four
+//}
+
+//task testMap {
+//    def one = ['width': 1024, 'height': 768]
+//    println one['width']
+//    one.put('hello', 900)
+//    println one.hello
+//
+//    one.each {
+//        println it.key
+//    }
+//}
+
+//task testMethod {
+//    method1(10, 8)
+//    println method2(10, 8)
+//    method1 3, 4
+//    println method3(5, 9)
+//}
+//
+//def method1(int a, int b) {
+//    println a + b
+//}
+//
+//int method2(int a, int b) {
+//    return a * b
+//}
+//
+//int method3(int a, int b) {
+//    a + a
+//    b + a
+//}
+
+//task testClazz {
+//    def person =new Person()
+//    person.name = "姓名"
+//    person.sex = "男"
+//    person.age = 12
+//
+//    println person.age
+//}
+//
+//class Person {
+//   private String name
+//   private String sex
+//   def age
+//}
+
+//task testClosure {
+//    doFirst {
+//        println "doFirst周期方法"
+//    }
+//
+//    doLast {
+//        println "doLast周期方法"
+//
+//        eachMap { k, v ->
+//            println "${k} is ${v}"
+//        }
+//    }
+//}
+//
+//void eachMap(closure) {
+//    def map1 = ["name": "张三", "age": 18]
+//    map1.each {
+//        closure(it.key, it.value)
+//    }
+//}
+
+ext {
+    myname = "fanyafeng"
+}
+
+task(ex35Hello) {
+
+    def map = ["1": "one", "2": "two", "3": "three", "4": "four", "5": "five"]
+    map.each { item ->
+        println item.value
+    }
+
+    def list = [1, 2, 3, 4, 5]
+    list.each{ item->
+        println item
+    }
+
+//    println "ex35Hello"
+    println "${myname}"
+}
+
+//ex35Hello.doFirst {
+//    println "doWFirst"
+//}
+//
+//ex35Hello.doLast {
+//    println project.hasProperty("ex35Hello")
+//    println "dowLast"
+//}
+
+
+
+

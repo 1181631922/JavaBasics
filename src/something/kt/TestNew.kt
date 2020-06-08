@@ -1,5 +1,7 @@
 package something.kt
 
+import kotlin.reflect.KClass
+
 /**
  * Author： fanyafeng
  * Data： 2020-02-24 17:24
@@ -8,9 +10,22 @@ package something.kt
 object TestNew {
     @JvmStatic
     fun main(args: Array<String>) {
-        val personList = listOf<Person>(Person(1), Person(2))
-        personList.maxBy(Person::age)
-        personList.maxBy { it.age }
+//        val personList = listOf<Person>(Person(1), Person(2))
+//        personList.maxBy(Person::age)
+//        personList.maxBy { it.age }
+
+//        val clazz = Point::class
+//        clazz.annotations.forEachIndexed { index, annotation ->
+//            println(annotation.toString())
+//            println(annotation.javaClass.toString())
+//            println(annotation.annotationClass.toString())
+//            println(GAImageLoadFrame::class.toString())
+//
+////            Class.forName("").newInstance()
+//        }
+
+        println(7%3)
+
     }
 
     data class Person(var age: Int) {

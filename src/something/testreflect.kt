@@ -53,3 +53,8 @@ object TestReflect {
 }
 
 typealias SuccessLambda<T> = ((result: T) -> Unit)?
+
+
+fun main(args: Array<String>) {
+
+}

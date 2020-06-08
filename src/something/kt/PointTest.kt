@@ -16,16 +16,24 @@ object PointTest {
         println("测试test")
         Point.sum2(Point(y = 6))
         Point.instance(3)
+
+        val newPoint = Point(3, 4) + Point(6, 7)
     }
 
 
 }
 
+@GAImageLoadFrame
 class Point @JvmOverloads constructor(var x: Int = 3, var y: Int = 0) {
     fun sum() = x + y
 
     fun sum1(): Int {
+//        checkNotNull()
         return x + y
+    }
+
+    operator fun plus(point: Point): Point {
+        return Point(point.x + this.x, point.y + this.y)
     }
 
     companion object {
