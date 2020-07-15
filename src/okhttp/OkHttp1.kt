@@ -5,5 +5,7 @@ package okhttp
  * Data： 2020/7/15 09:56
  * Email: fanyafeng@live.cn
  */
-class okhttp1 {
+class OkHttp1 constructor() {
+    @get:JvmName("javaName")
+    val name: String = "myname"
 }

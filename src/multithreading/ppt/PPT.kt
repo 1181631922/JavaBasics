@@ -1,8 +1,7 @@
 package multithreading.ppt
 
 import org.junit.Test
-import java.util.concurrent.ForkJoinPool
-import java.util.concurrent.RecursiveTask
+import java.util.concurrent.*
 
 /**
  * Author： fanyafeng
@@ -11,10 +10,50 @@ import java.util.concurrent.RecursiveTask
  */
 class PPT {
     @Test
-    fun ppt1(){
+    fun ppt1() {
+        val cyclicBarrier = CyclicBarrier(3)
 
     }
 
+    @Test
+    fun ppt2() {
+        val countDownLatch = CountDownLatch(4)
+        countDownLatch.await()
+        countDownLatch.countDown()
+        countDownLatch.count
+    }
+
+    @Test
+    fun ppt9() {
+        class CountTaskTmp(var start: Int, var end: Int) : RecursiveAction() {
+            val MAX = 20
+
+            override fun compute() {
+                if ((end - start) < MAX) {
+                    (start until end).forEach {
+                        Thread.sleep(200)
+                        println(Thread.currentThread().name + "i的值：" + it)
+                    }
+                } else {
+                    val middle = (start + end) / 2
+                    val left = CountTaskTmp(start, middle)
+                    val right = CountTaskTmp(middle, end)
+
+                    left.fork()
+                    right.fork()
+                }
+            }
+        }
+
+        val forkJoinPool = ForkJoinPool()
+        val task = CountTaskTmp(0, 30)
+        forkJoinPool.submit(task)
+        forkJoinPool.shutdown()
+        while (!forkJoinPool.awaitTermination(2, TimeUnit.SECONDS)) {
+
+        }
+        println("任务完成")
+    }
 
 
     @Test
@@ -55,5 +94,6 @@ class PPT {
 
         val r1 = forkJoinPool.invoke(task)
         println(r1)
+        forkJoinPool.shutdown()
     }
 }
