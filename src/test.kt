@@ -1,5 +1,3 @@
-import ProcessTask as ProcessTask
-
 /**
  * Author： fanyafeng
  * Data： 2020/6/2 14:46
@@ -7,10 +5,26 @@ import ProcessTask as ProcessTask
  */
 
 fun main(args: Array<String>) {
+//
+//    Task(Model("YYYY")).run()
+//
+//    Test(Model("DDDD")).run()
 
-    Task(Model("YYYY")).run()
+    (0 until 11).forEach {
+        if (it == 4) {
+            return@forEach
+        }
+        if (it==8){
+            return
+        }
+        println("输出：" + it)
 
-    Test(Model("DDDD")).run()
+
+    }
+
+    println(5 shr 1)
+
+    println(4 shl 1)
 
 }
 
@@ -30,6 +44,8 @@ interface ProcessTask<T : ProcessModel> : Runnable {
         println(processModel.parse(processModel.getSourcePath()))
         println("结束")
     }
+
+
 }
 
 interface ProcessModel {
